@@ -1,0 +1,27 @@
+consumes:
+- application/json
+definitions:
+  http.Empty:
+    type: object
+info:
+  contact:
+    name: API Documentation
+    url: ig.pomazkov@gmail.com
+  title: Mint internal API
+  version: "1.0"
+paths:
+  /v1/mint_token:
+    post:
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/http.Empty'
+      summary: Mint token
+      tags:
+      - Mint
+produces:
+- application/json
+schemes:
+- http
+swagger: "2.0"

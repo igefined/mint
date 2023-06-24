@@ -1,0 +1,43 @@
+{
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "schemes": [
+        "http"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "title": "Mint internal API",
+        "contact": {
+            "name": "API Documentation",
+            "url": "ig.pomazkov@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/v1/mint_token": {
+            "post": {
+                "tags": [
+                    "Mint"
+                ],
+                "summary": "Mint token",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/http.Empty"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "http.Empty": {
+            "type": "object"
+        }
+    }
+}
