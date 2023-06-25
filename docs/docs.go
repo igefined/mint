@@ -31,11 +31,29 @@ const docTemplate = `{
                     "Mint"
                 ],
                 "summary": "Mint token",
+                "parameters": [
+                    {
+                        "description": "mint structure",
+                        "name": "account",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/endpoints.mintReq"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "Private key for signing tx",
+                        "name": "Private-Key",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/http.Empty"
+                            "$ref": "#/definitions/endpoints.mintResp"
                         }
                     }
                 }
@@ -43,8 +61,24 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "http.Empty": {
-            "type": "object"
+        "endpoints.mintReq": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "receiver": {
+                    "type": "string"
+                }
+            }
+        },
+        "endpoints.mintResp": {
+            "type": "object",
+            "properties": {
+                "tx_hash": {
+                    "type": "string"
+                }
+            }
         }
     }
 }`

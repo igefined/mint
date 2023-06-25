@@ -1,13 +1,14 @@
 package main
 
 import (
-	"github.com/go-playground/validator/v10"
 	"github.com/igdotog/core/config"
 	"github.com/igdotog/core/http"
 	"github.com/igdotog/core/logger"
 	"github.com/igefined/mint/api"
 	"github.com/igefined/mint/api/endpoints"
+	"github.com/igefined/mint/use"
 
+	"github.com/go-playground/validator/v10"
 	"go.uber.org/fx"
 )
 
@@ -36,7 +37,10 @@ func main() {
 			api.NewServer,
 			http.NewBaseServer,
 			endpoints.New,
+			use.NewComposite,
 		),
+
+		use.Constructor(),
 
 		fx.Invoke(
 			func(_ *api.Server) {},

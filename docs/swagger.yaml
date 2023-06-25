@@ -1,7 +1,17 @@
 consumes:
 - application/json
 definitions:
-  http.Empty:
+  endpoints.mintReq:
+    properties:
+      amount:
+        type: string
+      receiver:
+        type: string
+    type: object
+  endpoints.mintResp:
+    properties:
+      tx_hash:
+        type: string
     type: object
 info:
   contact:
@@ -12,11 +22,23 @@ info:
 paths:
   /v1/mint_token:
     post:
+      parameters:
+      - description: mint structure
+        in: body
+        name: account
+        required: true
+        schema:
+          $ref: '#/definitions/endpoints.mintReq'
+      - description: Private key for signing tx
+        in: header
+        name: Private-Key
+        required: true
+        type: string
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/http.Empty'
+            $ref: '#/definitions/endpoints.mintResp'
       summary: Mint token
       tags:
       - Mint
