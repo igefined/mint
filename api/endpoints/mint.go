@@ -11,7 +11,7 @@ import (
 
 type (
 	mintReq struct {
-		Receiver string `json:"receiver"`
+		Receiver string `json:"receiver" validate:"eth_addr"`
 		Amount   string `json:"amount" validate:"numeric"`
 	}
 

@@ -26,7 +26,7 @@ type (
 
 	config struct {
 		Url     string `config:"MINTER_CLIENT_URL,required"`
-		Address string `config:"MITER_CONTRACT_ADDRESS,required"`
+		Address string `config:"MINTER_CONTRACT_ADDRESS,required"`
 	}
 )
 
